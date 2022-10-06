@@ -35,4 +35,4 @@ after_success:
   - docker push tonerolima/udagram-api-feed:3
   - docker push tonerolima/udagram-api-user:3
   - docker push tonerolima/udagram-frontend:3
-  - docker push tonerolima/udagram-reverseproxy:4
+  - docker push tonerolima/udagram-reverseproxy:5
