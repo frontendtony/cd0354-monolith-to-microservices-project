@@ -26,7 +26,7 @@ script:
   - docker tag udagram-api-feed tonerolima/udagram-api-feed:3
   - docker tag udagram-api-user tonerolima/udagram-api-user:3
   - docker tag udagram-frontend tonerolima/udagram-frontend:4
-  - docker tag udagram-reverseproxy tonerolima/udagram-reverseproxy:5
+  - docker tag udagram-reverseproxy tonerolima/udagram-reverseproxy:6
 
 after_success:
   # Push
@@ -35,4 +35,4 @@ after_success:
   - docker push tonerolima/udagram-api-feed:3
   - docker push tonerolima/udagram-api-user:3
   - docker push tonerolima/udagram-frontend:4
-  - docker push tonerolima/udagram-reverseproxy:5
+  - docker push tonerolima/udagram-reverseproxy:6
