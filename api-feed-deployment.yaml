@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-feed
+spec:
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+        - name: udagram-api-feed
+          image: tonerolima/udagram-api-feed:3
+          ports:
+            - containerPort: 80
+          env:
+            # Define the environment variable
+            - name: AWS_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: AWS_BUCKET
+            - name: AWS_REGION
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: AWS_REGION
+            - name: AWS_PROFILE
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: AWS_PROFILE
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: POSTGRES_DB
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: POSTGRES_HOST
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: udagram-secret
+                  key: POSTGRES_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: udagram-secret
+                  key: POSTGRES_PASSWORD

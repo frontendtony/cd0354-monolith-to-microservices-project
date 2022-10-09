@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-frontend
+spec:
+  selector:
+    matchLabels:
+      app: udagram-frontend
+  template:
+    metadata:
+      labels:
+        app: udagram-frontend
+    spec:
+      containers:
+        - name: udagram-frontend
+          image: tonerolima/udagram-frontend:4
+          ports:
+            - containerPort: 80
