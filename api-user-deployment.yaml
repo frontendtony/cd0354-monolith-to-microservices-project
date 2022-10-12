@@ -23,6 +23,16 @@ spec:
                 configMapKeyRef:
                   name: udagram-config-map
                   key: AWS_BUCKET
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: JWT_SECRET
+            - name: URL
+              valueFrom:
+                configMapKeyRef:
+                  name: udagram-config-map
+                  key: URL
             - name: AWS_REGION
               valueFrom:
                 configMapKeyRef:

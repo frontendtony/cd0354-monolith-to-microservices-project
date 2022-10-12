@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
         - name: reverse-proxy
-          image: tonerolima/udagram-reverseproxy:6
+          image: tonerolima/udagram-reverseproxy:9
           ports:
             - containerPort: 80
+          resources:
+            limits:
+              cpu: 10m
